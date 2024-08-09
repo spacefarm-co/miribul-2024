@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime, timedelta
+import numpy as np
 
 def preprocessing(ex_path, in_path, control_path):
     # data
@@ -71,9 +72,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinL01'] > 0)]
@@ -95,9 +96,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinL02'] > 0)]
@@ -119,9 +120,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinL03'] > 0)]
@@ -144,9 +145,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinL04'] > 0)]
@@ -168,9 +169,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinR01'] > 0)]
@@ -192,9 +193,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinR02'] > 0)]
@@ -216,9 +217,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinR03'] > 0)]
@@ -240,9 +241,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['upWinR04'] > 0)]
@@ -264,9 +265,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['siWinL01'] > 0)]
@@ -288,9 +289,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['siWinL02'] > 0)]
@@ -312,9 +313,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['siWinL03'] > 0)]
@@ -336,9 +337,9 @@ def preprocessing(ex_path, in_path, control_path):
             hour = row['hour']
             date = row['date']
             
-            # Set 15-day intervals before and after
-            start_date = date - pd.Timedelta(days=15)
-            end_date = date + pd.Timedelta(days=15)
+            # Set 5-day intervals before and after
+            start_date = date - pd.Timedelta(days=5)
+            end_date = date + pd.Timedelta(days=5)
             
             ref_data = control[(control['date'] >= start_date) & (control['date'] <= end_date) 
                                 & (control['hour'] == hour) & (control['siWinL04'] > 0)]
@@ -377,6 +378,6 @@ def preprocessing(ex_path, in_path, control_path):
     merge10 = merge9.combine_first(swl02)
     merge11 = merge10.combine_first(swl03)
     merge_final_ = merge11.combine_first(swl04)
+    merge_final = merge_final_.fillna(0)
 
-    merge_final = merge_final_.fillna(0, inplace=True)
     return merge_final
