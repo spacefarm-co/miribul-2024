@@ -12,6 +12,10 @@ def preprocessing(ex_path, in_path, control_path):
     in_df_copy = in_df.copy()
     control_df_copy = control_df.copy()
 
+    ex_df_copy['datetime'] = pd.to_datetime(ex_df_copy['datetime'])
+    in_df_copy['datetime'] = pd.to_datetime(in_df_copy['datetime'])
+    control_df_copy['datetime'] = pd.to_datetime(control_df_copy['datetime'])
+
     # rename
     control_df_copy.rename(columns = {'upWin0L4' : 'upWinL04'}, inplace = True)
 
@@ -40,24 +44,3 @@ def preprocessing(ex_path, in_path, control_path):
     # Merge all data
     merge = pd.merge(control_df_copy_hour_clean, all_2df, how = 'outer', on = 'datetime')
 
-    # Declare start and end dates
-    start_time = merge['datetime'].min()
-    format = '%Y-%m-%d %H:%M'
-    dt = datetime.strptime(merge['datetime'].max(),format)+timedelta(days=1)
-    end_time = datetime.strftime(dt,format)
-
-    # Daily index create
-    time_range = pd.date_range(start=start_time, end=end_time, freq='D')
-    series_ts = pd.Series(range(len(time_range)) , index=time_range)
-    plus_index1 = series_ts.to_frame()
-    plus_index2 = plus_index1 + 1
-    plus_index2['datetime'] = plus_index2.index
-    plus_index2.reset_index(drop=True)
-    plus_index2['new_date'] = plus_index2['datetime'].map(lambda x : (str(x)[:10]))
-    merge['new_date'] = merge['datetime'].map(lambda x : (str(x)[:10]))
-
-    merge2 = pd.merge(plus_index2, merge, how = 'outer', on = 'new_date')
-    merge3 = merge2.drop(columns=['datetime_x', 'new_date'])
-    merge3.rename(columns = {'datetime_y' : 'datetime'}, inplace = True)
-
-    return merge3
